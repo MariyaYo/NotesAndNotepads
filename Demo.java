@@ -10,12 +10,13 @@ public class Demo {
 	note.deleteText(3);
 	note.printText();
 
-	SecuredNotepad note2 = new SecuredNotepad(16, "aA9aa");
-	note2.addText(1, "hello there", "aA9aa");
-	note2.printText("aA9aa");
+	System.out.println("---------------------------------");
+	SecuredNotepad note2 = new SecuredNotepad(16, "aAa");
+	note2.addText(1, "hello there", "aAa");
+	note2.printText("aAa");
 
 	
-	
+	System.out.println("---------------------------------");
 	ElectronicSecuredNotepad tablet = new ElectronicSecuredNotepad(20, "bB8bb");
 	
 	tablet.addTextandTitle(1, "Bye", "Bye text", "bB8bb");

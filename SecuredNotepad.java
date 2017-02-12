@@ -5,66 +5,86 @@ public class SecuredNotepad extends SimpleNotepad implements INotepad {
 
 	SecuredNotepad(int numOfPages, String pass){  
 		super(numOfPages);
-		if (pass != null && !pass.isEmpty() && isSecured(pass)) {
+		try{
+			if (pass != null && !pass.isEmpty() && isSecured(pass)) {
 			this.pass = pass;
-		} else {
-			System.out.println("You didn't enter a password. SecuredNotepad can't be ceated.");
-			//don't know... won't google
+			} 
+		}
+		catch(NullPointerException a){
+			System.out.println("Your password is weak. SecuredNotepad can't be ceated.");
 		}
 	}
 	public void addText(int pageNum, String text) {}
 	public void addText(int pageNum, String text, String pass) {
-		if(checkPass(pass)){
-			super.addText(pageNum, text);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.addText(pageNum, text);
+			}
 		}
 	}
 
 	public void addTitle(int pageNum, String title) {}
 	public void addTitle(int pageNum, String title, String pass) {
-		if(checkPass(pass)){
-			super.addTitle(pageNum, title);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.addTitle(pageNum, title);
+			}
 		}
 	}
 	public void addTextandTitle(int pageNum, String title, String text) {}
 	public void addTextandTitle(int pageNum, String title, String text, String pass) {
-		if(checkPass(pass)){
-			super.addTextandTitle(pageNum, title, text);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.addTextandTitle(pageNum, title, text);
+			}
 		}
 	}
 	public void replaceText(int pageNum, String text) {}
 	public void replaceText(int pageNum, String text, String pass) {
-		if(checkPass(pass)){
-			super.replaceText(pageNum, text);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.replaceText(pageNum, text);
+			}
 		}
 	}
 	public void replaceTitle(int pageNum, String title) {}
 	public void replaceTitle(int pageNum, String title, String pass) {
-		if(checkPass(pass)){
-			super.replaceTitle(pageNum, title);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.replaceTitle(pageNum, title);
+			}
 		}
 	}
 	public void deleteText(int pageNum) {}
 	public void deleteText(int pageNum, String pass) {
-		if(checkPass(pass)){
-			super.deleteText(pageNum);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.deleteText(pageNum);
+			}
 		}
 	}
 	public void deleteTitle(int pageNum) {}
 	public void deleteTitle(int pageNum, String pass) {
-		if(checkPass(pass)){
-			super.deleteTitle(pageNum);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.deleteTitle(pageNum);
+			}
 		}
 	}
 	public void deleteAll(int pageNum) {}
 	public void deleteAll(int pageNum, String pass) {
-		if(checkPass(pass)){
-			super.deleteAll(pageNum);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.deleteAll(pageNum);
+			}
 		}
 	}
 	public void printText() {}
 	public void printText(String pass) {
-		if(checkPass(pass)){
-			super.printText();
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.printText();
+			}
 		}
 	}
 	private boolean checkPass(String pass){
@@ -78,16 +98,20 @@ public class SecuredNotepad extends SimpleNotepad implements INotepad {
 		return false;
 	}
 	public boolean searchWord(String word, String pass){
-		if(checkPass(pass)){
-			super.searchWord(word);
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.searchWord(word);
+			}
 		}
 		return false;
 	}
 	
 	public void printAllPagesWithDigits(){}
 	public void printAllPagesWithDigits(String pass){
-		if(checkPass(pass)){
-			super.printAllPagesWithDigits();
+		if(this.pass != null){
+			if(checkPass(pass)){
+				super.printAllPagesWithDigits();
+			}
 		}
 	}
 	boolean isSecured(String pass){
@@ -109,4 +133,6 @@ public class SecuredNotepad extends SimpleNotepad implements INotepad {
 		}
 		return false;
 	}
+	
+	
 }
